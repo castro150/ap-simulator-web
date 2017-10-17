@@ -13,6 +13,7 @@ body {
 .header,
 .marketing,
 .footer {
+  margin-top: 20px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -61,10 +62,6 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
   /* Remove the padding we set earlier */
   .header,
   .marketing,

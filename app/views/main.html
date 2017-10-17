@@ -1,23 +1,37 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<!-- <div class="row" style="margin: 15px;" ng-if="!ctrl.model.otimized"> -->
+<div class="row" style="margin: 15px;" ng-if="false">
+  <div class="col-md-4">
+    <input type="file" ngf-select ng-model="ctrl.model.file" accept=".json" />
+  </div>
+  <div class="col-md-4">
+    <button ng-disabled="ctrl.model.file === undefined || ctrl.model.file === null || ctrl.model.disableButton"
+        type="button" class="btn btn-primary" ng-click="ctrl.sendFile()">Otimizar</button>
+  </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<!-- <div style="margin: 15px;" ng-if="ctrl.model.otimized"> -->
+<div ng-if="true" style="margin: 15px;">
+  <div class="row" style="margin: 15px;">
+    <div class="col-md-4 form-group">
+      <label for="plane">Aeronave:</label>
+      <input type="text" class="form-control" id="plane" ng-model="ctrl.model.plane" />
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="fail">Falha:</label>
+      <input type="text" class="form-control" id="fail" ng-model="ctrl.model.fail" />
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="time">Horário:</label>
+      <input type="text" class="form-control" id="time" ng-model="ctrl.model.time" />
+    </div>
+  </div>
+  <div class=row style="margin: 15px;">
+    <div class="col-md-offset-10 col-md-2">
+      <div class="pull-right">
+        <button ng-disabled="ctrl.model.disableButton" class="btn btn-primary"
+            ng-click="ctrl.otimize()">Otimizar</button>
+      </div>
+    </div>
+  </div>
+  <iframe style="width: 1100px; height: 750px" src="http://127.0.0.1:5000/map"></iframe>
 </div>
