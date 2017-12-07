@@ -1,5 +1,4 @@
-<!-- <div class="row" style="margin: 15px;" ng-if="!ctrl.model.otimized"> -->
-<div class="row" style="margin: 15px;" ng-if="false">
+<div class="row" style="margin: 15px;" ng-if="!ctrl.model.otimized">
   <div class="col-md-4">
     <input type="file" ngf-select ng-model="ctrl.model.file" accept=".json" />
   </div>
@@ -9,29 +8,40 @@
   </div>
 </div>
 
-<!-- <div style="margin: 15px;" ng-if="ctrl.model.otimized"> -->
-<div ng-if="true" style="margin: 15px;">
+<div style="margin: 15px;" ng-if="ctrl.model.otimized">
   <div class="row" style="margin: 15px;">
     <div class="col-md-4 form-group">
       <label for="plane">Aeronave:</label>
-      <input type="text" class="form-control" id="plane" ng-model="ctrl.model.plane" />
+      <select class="form-control" id="plane" ng-model="ctrl.model.plane">
+        <option ng-repeat="name in ctrl.model.airplanesName">{{name}}</option>
+      </select>
     </div>
     <div class="col-md-4 form-group">
-      <label for="fail">Falha:</label>
-      <input type="text" class="form-control" id="fail" ng-model="ctrl.model.fail" />
+      <div class="form-group">
+        <label for="fail">Falha:</label>
+        <select class="form-control" id="fail" ng-model="ctrl.model.fail">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
     </div>
     <div class="col-md-4 form-group">
       <label for="time">Horário:</label>
-      <input type="text" class="form-control" id="time" ng-model="ctrl.model.time" />
+      <input type="time" step="1" class="form-control" id="time" ng-model="ctrl.model.time" required />
     </div>
   </div>
   <div class=row style="margin: 15px;">
-    <div class="col-md-offset-10 col-md-2">
+    <div class="col-md-1">
+      <button ng-disabled="ctrl.model.disableButton" class="btn btn-primary"
+          ng-click="ctrl.export()">Exportar</button>
+    </div>
+    <div class="col-md-offset-9 col-md-2">
       <div class="pull-right">
         <button ng-disabled="ctrl.model.disableButton" class="btn btn-primary"
             ng-click="ctrl.otimize()">Otimizar</button>
       </div>
     </div>
   </div>
-  <iframe style="width: 1100px; height: 750px" src="http://127.0.0.1:5000/map"></iframe>
+  <iframe id="map" style="width: 1100px; height: 750px" ng-src="{{ctrl.model.src}}"></iframe>
 </div>

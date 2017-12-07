@@ -30,6 +30,11 @@
     "jshint-stylish": "^1.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "7.10.1",
+    "npm": "5.2.0"
+  },
+  "dependencies": {
+    "express": "^4.15.5",
+    "gzippo": "^0.2.0"
   }
 }
